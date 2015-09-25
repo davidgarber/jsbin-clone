@@ -37,7 +37,7 @@
       }
 
       #toggles {
-        width: 200px;
+        width: 194px;
         margin:0 auto;
         list-style: none;
         border: 1px solid grey;
@@ -55,10 +55,41 @@
       }
 
       .codeContainer {
-        background-color: blue;
         height: 100%;
         width: 50%;
         float: left;
+        position: relative;
+      }
+
+      .codeContainer textarea {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-right: 1px solid grey;
+        font-family: monotype;
+        font-size: 90%;
+        padding: 3px;
+      }
+
+      .codeLabel {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      #cssContainer, #jsContainer {
+        display: none;
+      }
+
+      iframe {
+        height: 100%;
+        position: relative;
+        left: 20px;
+        border: none;
+      }
+
+      .selected {
+        background-color: grey;
       }
     </style>
 
@@ -74,28 +105,43 @@
         </div>
 
         <ul id="toggles">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JS</li>
-          <li style="border:none">Result</li>
+          <li class="toggle selected">HTML</li>
+          <li class="toggle">CSS</li>
+          <li class="toggle">JS</li>
+          <li class="toggle selected" style="border:none">Result</li>
         </ul>
 
       </div>
       <div class="clear"></div>
 
       <div class="codeContainer" id="htmlContainer">
-sd
+        <div class="codeLabel">HTML</div>
+        <textarea>Example Code</textarea>
+      </div>
+      <div class="codeContainer" id="cssContainer">
+        <div class="codeLabel">CSS</div>
+        <textarea>Example Code</textarea>
+      </div>
+      <div class="codeContainer" id="jsContainer">
+        <div class="codeLabel">JS</div>
+        <textarea>Example Code</textarea>
+      </div>
+      <div class="codeContainer" id="resultContainer">
+        <div class="codeLabel">Result</div>
+        <iframe></iframe>
       </div>
     </div>
       <script>
         var windowHeight=$(window).height();
         var menuBarHeight=$("#menuBar").height();
 
-        console.log(menuBarHeight)
-
         var codeContainerHeight=windowHeight -menuBarHeight;
 
         $(".codeContainer").height(codeContainerHeight+"px")
+
+        $(".toggle").click(function() {
+          $(this).toggleClass("selected");
+        });
 
       </script>
   </body>
