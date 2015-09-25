@@ -77,7 +77,7 @@
         top: 10px;
       }
 
-      #cssContainer, #jsContainer {
+      #CSSContainer, #JSContainer {
         display: none;
       }
 
@@ -114,19 +114,19 @@
       </div>
       <div class="clear"></div>
 
-      <div class="codeContainer" id="htmlContainer">
+      <div class="codeContainer" id="HTMLContainer">
         <div class="codeLabel">HTML</div>
         <textarea>Example Code</textarea>
       </div>
-      <div class="codeContainer" id="cssContainer">
+      <div class="codeContainer" id="CSSContainer">
         <div class="codeLabel">CSS</div>
         <textarea>Example Code</textarea>
       </div>
-      <div class="codeContainer" id="jsContainer">
+      <div class="codeContainer" id="JSContainer">
         <div class="codeLabel">JS</div>
         <textarea>Example Code</textarea>
       </div>
-      <div class="codeContainer" id="resultContainer">
+      <div class="codeContainer" id="ResultContainer">
         <div class="codeLabel">Result</div>
         <iframe></iframe>
       </div>
@@ -141,6 +141,10 @@
 
         $(".toggle").click(function() {
           $(this).toggleClass("selected");
+
+          var activeDiv=$(this).html();
+
+          $("#"+activeDiv+"Container").toggle();
         });
 
       </script>
